@@ -22,10 +22,15 @@ Canta-ng is a attempt to rewrite the singstar-like game/learning software canta 
 
 ## Why?
 
-Canta was written with usage of soya3d as 3d-engine.
-That did lead to several problems, but the most important right now is, that it did not got maintained very well.
-Therefore it is very difficult to get it running, even under varius linux distributions and its nearly impossible to get it running under windows.
-There are much more reasons, like better developer plattform, migration to a python3 code base, and also because I was bored ;)
+Cantas 3d Engine is Soya3d. 
+That leads to several problems, but the most important right now is, that the engine is not maintained very well.
+
+Therefore its hard to distribute / install Canta, its nearly impossible to launch it from windows and even under linux its difficult, too.
+
+There are much more reasons why blender with bge is the better choice as python 3d engine over Soya3d, 
+like better integrated developer plattform, migration to a python3 code base and also because
+I tought it should be doable and a good challenge and maybe makes 
+cantas core functionality more accessible and more usefull for more people ;)
 
 ## Dependencies
 
@@ -35,7 +40,7 @@ There are much more reasons, like better developer plattform, migration to a pyt
 
 -   python-configobj
 
--   [song "Bruder Jakob"](https://github.com/spiderbit/canta-media)   (copy it either to media/songs in the project root or to ~/.canta/songs)
+-   Song: ["Bruder Jakob"](https://github.com/spiderbit/canta-media)   (place it either in media/songs in the project root or in ~/.canta/songs)
 
 ## Start
 
