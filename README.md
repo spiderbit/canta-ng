@@ -18,14 +18,14 @@
 
 ## About
 
-Canta-ng is a attempt to rewrite the singstar-like game/learning software canta with the blender game engine and python 3.x.
+Canta-ng is a attempt to rewrite the singstar-like game/learning software canta with the usage of blender game engine and python 3.x.
 
 ## Why?
 
 Canta was written with usage of soya3d as 3d-engine.
 That did lead to several problems, but the most important right now is, that it did not got maintained very well.
-Therefore its very difficult to got it running even under varius linux distributions. Also its nearly impossible to get it running under windows.
-There are much other reasons, like better developer plattform, migration to a python3 code base, and also because I was bored ;)
+Therefore it is very difficult to get it running, even under varius linux distributions and its nearly impossible to get it running under windows.
+There are much more reasons, like better developer plattform, migration to a python3 code base, and also because I was bored ;)
 
 ## Dependencies
 
