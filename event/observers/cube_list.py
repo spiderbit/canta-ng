@@ -29,7 +29,17 @@ class CubeList:
 
     def _delete_all(self):
 #        del self.world.children[0:]
-        pass
+        import bge
+        cont = bge.logic.getCurrentController()
+        own = cont.owner
+        print ("delete-CUBES")
+
+
+        for own2 in own.children:
+            # own2 = own.children[pos]
+            # own2.worldPosition.x += 1
+            own2.visible = False
+
 
     def draw_grid(self, words):
         # 12 balken + 13 falschbalken = 25 einheiten, jeder balken
@@ -105,11 +115,29 @@ class CubeList:
 
     def _activate_note(self, pos):
         # self.world.children[pos].z = 0.6
-        print ("activate_cube")
+        print ("activate_cube %s" % pos)
+        import bge
+        cont = bge.logic.getCurrentController()
+        own = cont.owner
+        own2 = own.children['Plane.%03d' % pos]
+        print ("%s" % own2.visible)
+        # own2.worldPosition.x += 1
+        own2.visible = True
+        own2.color = [0,1,0,0]
+
 
     def _de_activate_note(self, pos):
         # self.world.children[pos].z = 0
         print ("deactivate_cube")
+        import bge
+        cont = bge.logic.getCurrentController()
+        own = cont.owner
+        own2 = own.children['Plane.%03d' % pos]
+        # own2 = own.children[pos]
+        # own2.worldPosition.x += 1
+        own2.color = [1,1,1,1]
+        # own2.visible=False
+
 
     #def _bonus_draw(self, size_y, size_x, duration):
         #material = soya.Material()

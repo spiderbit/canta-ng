@@ -127,7 +127,8 @@ class SingCubeObserver(CubeObserver):
         elif status == 'deActivateNote':
             pass
         elif status == 'nextLine':
-            self._delete_all()
+            pass
+            # self._delete_all()
         elif status == 'end':
             self._end()
         elif status == 'input':
