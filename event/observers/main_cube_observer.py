@@ -32,33 +32,24 @@ class MainCubeObserver(CubeObserver):
             words = list of SongSegments
         """
 
+        properties = {}
         line_nr = song.line_nr
+        tone_list = song.lines[line_nr].segments
         self.calc_start_end_size(song)
-        import bge
-        cont = bge.logic.getCurrentController()
-        own = cont.owner
-        length = len(song.lines[line_nr].segments)
-        for pos in range(length):
-            own2 = own.children['Plane.%03d' % pos]
-            own2.setVisible(True)
-            own2.color = [1,1,1,1]
+        # length = len(song.lines[line_nr].segments)
 
+        for word in tone_list:
+            properties['length'] = word.duration
+            properties['rotate'] = False
+            # if word.special:
+            #     properties['diffuse'] = self.color['special']
+            # elif word.freestyle:
+            #     properties['diffuse'] = self.color['freestyle']
+            # else:
+            #     properties['diffuse'] = self.color['normal']
 
-
-        # for word in song.lines[line_nr].segments:
-
-        #     properties['length']=word.duration
-
-        #     properties['rotate'] = False
-        #     # if word.special:
-        #     #     properties['diffuse'] = self.color['special']
-        #     # elif word.freestyle:
-        #     #     properties['diffuse'] = self.color['freestyle']
-        #     # else:
-        #     #     properties['diffuse'] = self.color['normal']
-
-
-        #     self.draw_tone(word.time_stamp, word.pitch, word.duration, properties)
+            pos = tone_list.index(word)
+            self.draw_tone(word.time_stamp, word.pitch, word.duration, properties, pos)
 
 
     def update(self, subject):

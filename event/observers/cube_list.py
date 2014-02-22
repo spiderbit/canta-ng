@@ -23,12 +23,12 @@
 class CubeList:
     def __init__(self, parent_world):
         self.parent_world = parent_world
-       # self.world = soya.World()
-        #self.parent_world.add(self.world)
+        # self.world = soya.World()
+        # self.parent_world.add(self.world)
 
 
     def _delete_all(self):
-#        del self.world.children[0:]
+        # del self.world.children[0:]
         import bge
         cont = bge.logic.getCurrentController()
         own = cont.owner
@@ -54,9 +54,9 @@ class CubeList:
 
         # create a new cube with the new coordinates:
         for i in range(count_right_bar):
- #           bar = soya.cube.Cube()
-  #          bar.scale(size_x * range_x, size_y/10, 0.5)
-   #         model = bar.to_model()
+            # bar = soya.cube.Cube()
+            # bar.scale(size_x * range_x, size_y/10, 0.5)
+            # model = bar.to_model()
             # 2 ist für den abstand zwischen den noten
             position_y = ((i) - (count_right_bar / 2.) ) * size_y * 1
             position_x =  0 #( range_x -(range_x)/2 ) * 0.3
@@ -67,10 +67,10 @@ class CubeList:
 
             #else:
             pos_z = 0
-#            x = soya.Body(self.world, model).set_xyz(position_x, position_y, pos_z)
+            # x = soya.Body(self.world, model).set_xyz(position_x, position_y, pos_z)
 
 
-    def add(self, properties):
+    def add(self, properties, pos):
 
         # if properties['diffuse']:
         #     material.diffuse = properties['diffuse']
@@ -84,13 +84,8 @@ class CubeList:
         # if properties['seperate_specular']:
         #     material.separate_specular = 1
 
-
-
-        self.use_pil = False
-        self.use_shadows = False
-
-#        bar = soya.cube.Cube(material=material)
-#        bar.scale(self.size_x * properties['length'], self.size_y, 0.5)
+        # bar = soya.cube.Cube(material=material)
+        # bar.scale(self.size_x * properties['length'], self.size_y, 0.5)
 
         # if self.use_pil:
         #     for face in bar.children:
@@ -111,6 +106,17 @@ class CubeList:
         # else:
         #     body = soya.Body(self.world, model)
         # body.set_xyz(properties['x'], properties['y'], properties['z'])
+
+
+        import bge
+        cont = bge.logic.getCurrentController()
+        own = cont.owner
+        own2 = own.children['Plane.%03d' % pos]
+        own2.setVisible(True)
+        own2.color = [1,1,1,1]
+        own2.localPosition = [properties['x'], properties['y'], properties['z']]
+        own2.localScale = [self.size_x * properties['length'] /3. , self.size_y/3., 0.5/3.]
+
 
 
     def _activate_note(self, pos):

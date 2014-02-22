@@ -51,7 +51,7 @@ class CubeObserver(CubeList):
         #	1. the distance
         #	2. the viewangle
         #	3. the size of projection (if distance is zero)
-        self.size_of_window_x = 15.
+        self.size_of_window_x = 5.
 
         # Distance to the left in beats.
         # You get the width of a line by calculating beats * size_x
@@ -81,13 +81,13 @@ class CubeObserver(CubeList):
         return True
 
 
-    def draw_tone(self, time_stamp, pitch, duration, properties):	# these values differ from tone to tone
+    def draw_tone(self, time_stamp, pitch, duration, properties, pos):	# these values differ from tone to tone
 
 
         position_y = (0 - (self.number_of_different_tones / 2) \
-                    + (pitch - self.min_pitch) + 0.5) * self.size_y		# 0.5 for half length
+                      + (pitch - self.min_pitch) + 0.5) * self.size_y /3.		# 0.5 for half length
         position_x = (0 - (self.end_x / 2 ) + (time_stamp - self.start_x) \
-                    + (duration / 2)) * self.size_x
+                      + (duration / 2)) * self.size_x
         position_z = 0
 
         properties['x'] = position_x
@@ -96,5 +96,5 @@ class CubeObserver(CubeList):
         properties['specular']=False
         properties['seperate_specular']=False
 
-        self.add(properties)
+        self.add(properties, pos)
 
