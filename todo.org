@@ -1,0 +1,3 @@
+
+* Bugs / Todo
+- figur out how to get the real "size_of_window_x":  [[file:event/observers/cube_observer.py::#%20we%20would%20need%20from%20the%20camera][poi]]
